@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CineSense</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #000;
+            color: white;
+        }
+
+        /* =========================
+           CINEMA HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.82),
+                    rgba(0,0,0,.48),
+                    rgba(0,0,0,.72)
+                ),
+                url("cinema-bg.png");
+
+            background-size: cover;
+            background-position: center;
+
+        }
+
+
+        /* Dark cinematic overlay */
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0,0,0,.25),
+                    rgba(0,0,0,.15) 50%,
+                    rgba(0,0,0,.85)
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 80px 7vw;
+
+        }
+
+
+        .brand {
+
+            color: #e50914;
+
+            font-size: 18px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 25px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .eyebrow {
+
+            color: #ff777e;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        h1 {
+
+            max-width: 720px;
+
+            font-size: clamp(42px, 6vw, 78px);
+
+            line-height: .98;
+
+            letter-spacing: -3px;
+
+            margin-bottom: 24px;
+
+            text-shadow:
+                0 5px 30px rgba(0,0,0,.8);
+
+        }
+
+
+        h1 span {
+
+            color: #e50914;
+
+        }
+
+
+        .description {
+
+            max-width: 620px;
+
+            color: #ddd;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-box {
+
+            display: flex;
+
+            gap: 10px;
+
+            max-width: 700px;
+
+        }
+
+
+        .search-box input {
+
+            flex: 1;
+
+            min-width: 0;
+
+            padding: 17px 20px;
+
+            color: white;
+
+            background: rgba(10,10,10,.82);
+
+            border: 1px solid rgba(255,255,255,.28);
+
+            border-radius: 8px;
+
+            outline: none;
+
+            backdrop-filter: blur(10px);
+
+            font-size: 15px;
+
+        }
+
+
+        .search-box input::placeholder {
+
+            color: #999;
+
+        }
+
+
+        .search-box input:focus {
+
+            border-color: #e50914;
+
+            box-shadow:
+                0 0 0 3px rgba(229,9,20,.15);
+
+        }
+
+
+        .search-button {
+
+            border: none;
+
+            padding: 0 25px;
+
+            border-radius: 8px;
+
+            background: #e50914;
+
+            color: white;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .search-button:hover {
+
+            background: #ff1722;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .example {
+
+            margin-top: 12px;
+
+            color: #aaa;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =========================
+           BOTTOM CINEMA INFO
+        ========================= */
+
+        .bottom-label {
+
+            position: absolute;
+
+            bottom: 35px;
+
+            left: 7vw;
+
+            z-index: 3;
+
+            color: rgba(255,255,255,.55);
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .hero {
+
+                background-position: center;
+
+                align-items: flex-end;
+
+            }
+
+
+            .content {
+
+                padding: 50px 25px 100px;
+
+            }
+
+
+            h1 {
+
+                font-size: 45px;
+
+                letter-spacing: -2px;
+
+            }
+
+
+            .description {
+
+                font-size: 15px;
+
+            }
+
+
+            .search-box {
+
+                flex-direction: column;
+
+            }
+
+
+            .search-button {
+
+                height: 52px;
+
+            }
+
+
+            .bottom-label {
+
+                left: 25px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<section class="hero">
+
+
+    <div class="content">
+
+        <div class="brand">
+            CINESENSE
+        </div>
+
+
+        <div class="eyebrow">
+            AI • Semantic Movie Search
+        </div>
+
+
+        <h1>
+            Find movies that
+            <span>match your vibe.</span>
+        </h1>
+
+
+        <p class="description">
+            Tell us what kind of movie you're in the mood for.
+            Our AI understands what you mean and finds movies
+            that feel right for you.
+        </p>
+
+
+        <div class="search-box">
+
+            <input
+                    type="text"
+                    placeholder="e.g. a mind-bending movie about dreams"
+            >
+
+            <button class="search-button">
+                Find My Movie
+            </button>
+
+        </div>
+
+
+        <div class="example">
+            Try: "a lonely person trying to survive in space"
+        </div>
+
+    </div>
+
+
+    <div class="bottom-label">
+        ✦ Powered by AI Embeddings & Semantic Search
+    </div>
+
+
+</section>
+
+
+</body>
+
+</html>
